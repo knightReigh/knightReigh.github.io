@@ -1,0 +1,43 @@
+language: node_js  #设置语言
+
+cache: 
+  - pandoc
+  - hexo-renderer-pandoc
+
+node_js: stable  #设置相应的版本 branches:
+    only:
+      - source
+
+install:
+  - wget ${pandoc}
+  - sudo dpkg -i pandoc*.deb
+  - npm install  #安装hexo及插件
+  - npm install hexo-renderer-pandoc --save
+  - npm install gulp -g
+  - npm install gulp-minify-css gulp-uglify gulp-htmlmin gulp-htmlclean gulp --save
+
+before_script:
+    - git config --global user.name 'knightReigh'
+    - git config --global user.email '12376953+knightReigh@users.noreply.github.com'
+
+script:
+  - hexo cl  #清除
+  - hexo g  --config source/_data/next.yml #生成
+  - gulp #压缩
+
+after_script:
+    - mkdir .deploy                   # Create a folder to use for teh pages branch
+    - cd .deploy
+    - git clone --depth 1 --branch master --single-branch $DEPLOY_REPO . || (git init && git remote add -t master origin $DEPLOY_REPO)
+    - rm -rf ./*                      # Clear old verion
+    - cp -r ../public/* .             # Copy over files for new version
+    - git add -A .
+    - git commit -m 'Site updated'    # Make a new commit for new version
+    - git branch -m master
+    - git push -q -u origin master  # Push silently so we don't leak information
+
+env: 
+  global:
+   - GH_REF: github.com/knightReigh/knightReigh.github.io.git  #设置GH_REF，注意更改yourname
+   - DEPLOY_REPO: https://${GH_TOKEN}@${GH_REF}
+   - pandoc: https://github.com/jgm/pandoc/releases/download/1.19.2.1/pandoc-1.19.2.1-1-amd64.deb

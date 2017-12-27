@@ -1,0 +1,32 @@
+# Site
+title: A Scattered Note on Web-Dev
+subtitle:
+description:
+author: KnightR
+language: en
+timezone:
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+#url: http://yoursite.com 
+url: https://fredhdx.github.io 
+root: /
+permalink: :title/
+permalink_defaults: 
+
+# deploy
+deploy:
+    - type: git
+      username: fredhdx
+      email: 12376953+fredhdx@users.noreply.github.com
+      repo: git@github.fredhdx:fredhdx/fredhdx.github.io
+      branch: master
+
+# Support for LiveRe comments system.
+# You can get your uid from https://livere.com/insight/myCode (General web site)
+# livere_uid: MTAyMC8zMTgwNS84MzY5
+
+google_analytics: UA-106321938-2
+
+# Hypercomments
+hypercomments_id: 97727

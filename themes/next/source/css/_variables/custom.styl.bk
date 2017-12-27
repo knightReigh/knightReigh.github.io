@@ -1,0 +1,30 @@
+// custom variable
+$theme-color                  = $red
+$theme-color-light            = rgba($red, 0.5)
+$theme-transparency           = 0.7
+
+// Global link color.
+$link-color                   = $black-light
+$link-hover-color             = $theme-color
+$link-decoration-color        = $grey-light
+$link-decoration-hover-color  = $theme-color
+
+$read-more-color							= $theme-color
+
+// Global button variables
+$btn-default-bg                 = white
+$btn-default-color              = $theme-color
+$btn-default-border-color       = $theme-color
+
+$btn-default-hover-bg           = $theme-color
+$btn-default-hover-color        = white
+$btn-default-hover-border-color = white
+
+$btn-font-weight                = normal
+$btn-default-radius             = 0
+$btn-default-font-size          = 14px
+$btn-default-border-width       = 2px
+
+$sidebar-nav-color              = $black-light
+$sidebar-nav-hover-color        = $whitesmoke
+$sidebar-highlight              = $blue-bright
