@@ -4,7 +4,9 @@ cache:
   - pandoc
   - hexo-renderer-pandoc
 
-node_js: stable  #设置相应的版本 branches:
+node_js: stable  #设置相应的版本
+
+branches:
     only:
       - source
 
@@ -41,3 +43,4 @@ env:
    - GH_REF: github.com/knightReigh/knightReigh.github.io.git  #设置GH_REF，注意更改yourname
    - DEPLOY_REPO: https://${GH_TOKEN}@${GH_REF}
    - pandoc: https://github.com/jgm/pandoc/releases/download/1.19.2.1/pandoc-1.19.2.1-1-amd64.deb
+
