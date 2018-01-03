@@ -39,7 +39,7 @@ Linux
     import csv
 ```
 # 完整代码
-[fredhdx/CrawlBilyInfo](https://github.com/fredhdx/CrawlBilyInfo)
+[knightReigh/CrawlBilyInfo](https://github.com/knightReigh/CrawlBilyInfo)
 
 # 中心代码
 
