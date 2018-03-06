@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+    
+    
+  <url>
+    <loc>https://fredhdx.github.io/vmOnubuntu17/</loc>
+    <lastmod>2018-03-06T22:29:48.045Z</lastmod>
+    <data>
+        <display>
+        <title>A Simple Solution For Virtual Box Usage on Ubuntu/Debian 16.04 with Secure Boot</title>
+        <pubTime>2017-09-09T00:00:00.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://fredhdx.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://fredhdx.github.io/usetravis/</loc>
+    <lastmod>2018-03-06T22:29:48.045Z</lastmod>
+    <data>
+        <display>
+        <title>Use Travis-ci To Automate Github-page Build Process</title>
+        <pubTime>2017-11-08T00:00:00.000Z</pubTime>
+        
+        <tag>webdev</tag>
+         
+        <tag>hexo</tag>
+         
+        <tag>travis-ci</tag>
+         
+         
+           
+             
+              <breadCrumb title="programming" url="https://fredhdx.github.io/categories/programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://fredhdx.github.io/upnp-ubuntu/</loc>
+    <lastmod>2018-03-06T22:29:48.045Z</lastmod>
+    <data>
+        <display>
+        <title>Set up Home Streaming Library on Ubuntu (UPNP)</title>
+        <pubTime>2017-12-21T01:49:18.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="programming" url="https://fredhdx.github.io/categories/programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://fredhdx.github.io/teamX-cp/</loc>
+    <lastmod>2018-03-06T22:29:48.045Z</lastmod>
+    <data>
+        <display>
+        <title>SNH48 Team X 友情(CP)大乱炖 B站补档目录</title>
+        <pubTime>2016-10-29T00:00:00.000Z</pubTime>
+        
+        <tag>SNH48</tag>
+         
+         
+           
+             
+              <breadCrumb title="SNH48" url="https://fredhdx.github.io/categories/SNH48/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://fredhdx.github.io/setupGithubPage/</loc>
+    <lastmod>2018-03-06T22:29:48.045Z</lastmod>
+    <data>
+        <display>
+        <title>Simple Guide to Set up Github Website</title>
+        <pubTime>2017-11-08T00:00:00.000Z</pubTime>
+        
+        <tag>webdev</tag>
+         
+        <tag>Jekyll</tag>
+         
+         
+           
+             
+              <breadCrumb title="programming" url="https://fredhdx.github.io/categories/programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://fredhdx.github.io/multiprocessScrape/</loc>
+    <lastmod>2018-03-06T22:29:47.993Z</lastmod>
+    <data>
+        <display>
+        <title>使用Python多线程爬虫获取B站UP主视频信息</title>
+        <pubTime>2018-03-05T00:00:00.000Z</pubTime>
+        
+        <tag>web-crawl</tag>
+         
+        <tag>requests</tag>
+         
+        <tag>multiprocess</tag>
+         
+        <tag>pool</tag>
+         
+        <tag>gevent</tag>
+         
+        <tag>webScrape</tag>
+         
+         
+           
+             
+              <breadCrumb title="data" url="https://fredhdx.github.io/categories/data/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://fredhdx.github.io/next-customization/</loc>
+    <lastmod>2018-03-06T22:29:47.993Z</lastmod>
+    <data>
+        <display>
+        <title>Custmoizing Hexo blog theme-Next and Swiper</title>
+        <pubTime>2017-11-10T00:00:00.000Z</pubTime>
+        
+        <tag>webdev</tag>
+         
+         
+           
+             
+              <breadCrumb title="programming" url="https://fredhdx.github.io/categories/programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://fredhdx.github.io/lightworksOnubuntu/</loc>
+    <lastmod>2018-03-06T22:29:47.989Z</lastmod>
+    <data>
+        <display>
+        <title>Lightworks 14 Closes Immediately After Opening Ubuntu 17</title>
+        <pubTime>2018-02-23T00:00:00.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>video-editing</tag>
+         
+        <tag>lightworks</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://fredhdx.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://fredhdx.github.io/hexoGcloud/</loc>
+    <lastmod>2018-03-06T22:29:47.977Z</lastmod>
+    <data>
+        <display>
+        <title>Blogging on Google Cloud Platform</title>
+        <pubTime>2017-09-19T21:09:26.000Z</pubTime>
+        
+        <tag>webdev</tag>
+         
+         
+           
+             
+              <breadCrumb title="programming" url="https://fredhdx.github.io/categories/programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://fredhdx.github.io/hexo-seo/</loc>
+    <lastmod>2018-03-06T22:29:47.937Z</lastmod>
+    <data>
+        <display>
+        <title>Search Engine Optimization for Hexo-next site</title>
+        <pubTime>2017-11-12T01:49:18.000Z</pubTime>
+        
+        <tag>webdev</tag>
+         
+        <tag>seo</tag>
+         
+        <tag>google-webmaster</tag>
+         
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="programming" url="https://fredhdx.github.io/categories/programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://fredhdx.github.io/githubTips/</loc>
+    <lastmod>2018-03-06T22:29:47.937Z</lastmod>
+    <data>
+        <display>
+        <title>Github & Linux Tips</title>
+        <pubTime>2017-09-07T00:00:00.000Z</pubTime>
+        
+        <tag>Github</tag>
+         
+        <tag>webdev</tag>
+         
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="programming" url="https://fredhdx.github.io/categories/programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://fredhdx.github.io/bashCommandparse/</loc>
+    <lastmod>2018-03-06T22:29:47.929Z</lastmod>
+    <data>
+        <display>
+        <title>A Learning Note on Shell Programming: Commandline Argument Parser</title>
+        <pubTime>2017-09-19T21:09:26.000Z</pubTime>
+        
+        <tag>bash</tag>
+         
+         
+           
+             
+              <breadCrumb title="programming" url="https://fredhdx.github.io/categories/programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://fredhdx.github.io/bilibilicrawl/</loc>
+    <lastmod>2018-03-06T22:29:47.929Z</lastmod>
+    <data>
+        <display>
+        <title>初尝B站爬虫：总结和感悟</title>
+        <pubTime>2017-12-23T00:00:00.000Z</pubTime>
+        
+        <tag>web-crawl</tag>
+         
+        <tag>data</tag>
+         
+        <tag>python</tag>
+         
+        <tag>BeautifulSoup</tag>
+         
+        <tag>bilibili</tag>
+         
+        <tag>lxml</tag>
+         
+         
+           
+             
+              <breadCrumb title="data" url="https://fredhdx.github.io/categories/data/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://fredhdx.github.io/arch-triboot/</loc>
+    <lastmod>2018-03-06T22:29:47.925Z</lastmod>
+    <data>
+        <display>
+        <title>Install Arch Linux with Ubuntu and Windows</title>
+        <pubTime>2017-12-01T00:00:00.000Z</pubTime>
+        
+        <tag>Arch</tag>
+         
+        <tag>Linux</tag>
+         
+        <tag>UEFI</tag>
+         
+        <tag>multiboot</tag>
+         
+        <tag>KDE Plasma</tag>
+         
+        <tag>Zsh</tag>
+         
+        <tag>Vim</tag>
+         
+        <tag>Linux Graphic Stack</tag>
+         
+        <tag>sddm</tag>
+         
+        <tag>Xorg</tag>
+         
+        <tag>X11</tag>
+         
+        <tag>Fctix</tag>
+         
+        <tag>display server</tag>
+         
+        <tag>window manager</tag>
+         
+        <tag>display manager</tag>
+         
+        <tag>Desktop Environment</tag>
+         
+        <tag>Linux Partition</tag>
+         
+        <tag>linux Chinese input</tag>
+         
+        <tag>arch network configuration</tag>
+         
+         
+           
+             
+              <breadCrumb title="programming" url="https://fredhdx.github.io/categories/programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+</urlset>

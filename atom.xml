@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>A Scattered Note on Web-Dev</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://fredhdx.github.io/"/>
+  <updated>2018-03-06T22:29:47.993Z</updated>
+  <id>https://fredhdx.github.io/</id>
+  
+  <author>
+    <name>KnightR</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用Python多线程爬虫获取B站UP主视频信息</title>
+    <link href="https://fredhdx.github.io/multiprocessScrape/"/>
+    <id>https://fredhdx.github.io/multiprocessScrape/</id>
+    <published>2018-03-05T00:00:00.000Z</published>
+    <updated>2018-03-06T22:29:47.993Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用Python获取指定B站UP主所有上传视频; 使用Python自带或第三方多任务插件进行加速
+    
+    </summary>
+    
+      <category term="data" scheme="https://fredhdx.github.io/categories/data/"/>
+    
+    
+      <category term="web-crawl" scheme="https://fredhdx.github.io/tags/web-crawl/"/>
+    
+      <category term="requests" scheme="https://fredhdx.github.io/tags/requests/"/>
+    
+      <category term="multiprocess" scheme="https://fredhdx.github.io/tags/multiprocess/"/>
+    
+      <category term="pool" scheme="https://fredhdx.github.io/tags/pool/"/>
+    
+      <category term="gevent" scheme="https://fredhdx.github.io/tags/gevent/"/>
+    
+      <category term="webScrape" scheme="https://fredhdx.github.io/tags/webScrape/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Lightworks 14 Closes Immediately After Opening Ubuntu 17</title>
+    <link href="https://fredhdx.github.io/lightworksOnubuntu/"/>
+    <id>https://fredhdx.github.io/lightworksOnubuntu/</id>
+    <published>2018-02-23T00:00:00.000Z</published>
+    <updated>2018-03-06T22:29:47.989Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Solution for Lightworks 14 closing immediately after opneing on Ubuntu 17.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://fredhdx.github.io/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://fredhdx.github.io/tags/Linux/"/>
+    
+      <category term="video-editing" scheme="https://fredhdx.github.io/tags/video-editing/"/>
+    
+      <category term="lightworks" scheme="https://fredhdx.github.io/tags/lightworks/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>初尝B站爬虫：总结和感悟</title>
+    <link href="https://fredhdx.github.io/bilibilicrawl/"/>
+    <id>https://fredhdx.github.io/bilibilicrawl/</id>
+    <published>2017-12-23T00:00:00.000Z</published>
+    <updated>2018-03-06T22:29:47.929Z</updated>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/bilibilicrawl/head.jpg&quot;&gt;
+    
+    </summary>
+    
+      <category term="data" scheme="https://fredhdx.github.io/categories/data/"/>
+    
+    
+      <category term="web-crawl" scheme="https://fredhdx.github.io/tags/web-crawl/"/>
+    
+      <category term="data" scheme="https://fredhdx.github.io/tags/data/"/>
+    
+      <category term="python" scheme="https://fredhdx.github.io/tags/python/"/>
+    
+      <category term="BeautifulSoup" scheme="https://fredhdx.github.io/tags/BeautifulSoup/"/>
+    
+      <category term="bilibili" scheme="https://fredhdx.github.io/tags/bilibili/"/>
+    
+      <category term="lxml" scheme="https://fredhdx.github.io/tags/lxml/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Set up Home Streaming Library on Ubuntu (UPNP)</title>
+    <link href="https://fredhdx.github.io/upnp-ubuntu/"/>
+    <id>https://fredhdx.github.io/upnp-ubuntu/</id>
+    <published>2017-12-21T01:49:18.000Z</published>
+    <updated>2018-03-06T22:29:48.045Z</updated>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/upnp-ubuntu/logo-horiz.png&quot;&gt;
+&lt;p&gt;I found this spin-off of &lt;em&gt;&lt;a href=&quot;http://mediatomb.cc/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;MediaTomb&lt;/a&gt;&lt;/em&gt; most straight-forward and user-friendly to set up a &lt;strong&gt;UPNP streaming library&lt;/strong&gt; on Ubunu/Linux systems.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="programming" scheme="https://fredhdx.github.io/categories/programming/"/>
+    
+    
+      <category term="linux" scheme="https://fredhdx.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Install Arch Linux with Ubuntu and Windows</title>
+    <link href="https://fredhdx.github.io/arch-triboot/"/>
+    <id>https://fredhdx.github.io/arch-triboot/</id>
+    <published>2017-12-01T00:00:00.000Z</published>
+    <updated>2018-03-06T22:29:47.925Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;before-start&quot;&gt;Before Start&lt;/h1&gt;
+&lt;p&gt;I have had my Ubuntu + Windows dual-boot workstation set for quite while. Then I realize that I need an additional Linux installation in case my Work Ubuntu broke down. Since this &lt;strong&gt;3rd&lt;/strong&gt; distro would be primarily used for resue and leisure experimentation, I choose &lt;a href=&quot;https://www.archlinux.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Arch Linux&lt;/a&gt; for its high customizability and compact initial size.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="programming" scheme="https://fredhdx.github.io/categories/programming/"/>
+    
+    
+      <category term="Arch" scheme="https://fredhdx.github.io/tags/Arch/"/>
+    
+      <category term="Linux" scheme="https://fredhdx.github.io/tags/Linux/"/>
+    
+      <category term="UEFI" scheme="https://fredhdx.github.io/tags/UEFI/"/>
+    
+      <category term="multiboot" scheme="https://fredhdx.github.io/tags/multiboot/"/>
+    
+      <category term="KDE Plasma" scheme="https://fredhdx.github.io/tags/KDE-Plasma/"/>
+    
+      <category term="Zsh" scheme="https://fredhdx.github.io/tags/Zsh/"/>
+    
+      <category term="Vim" scheme="https://fredhdx.github.io/tags/Vim/"/>
+    
+      <category term="Linux Graphic Stack" scheme="https://fredhdx.github.io/tags/Linux-Graphic-Stack/"/>
+    
+      <category term="sddm" scheme="https://fredhdx.github.io/tags/sddm/"/>
+    
+      <category term="Xorg" scheme="https://fredhdx.github.io/tags/Xorg/"/>
+    
+      <category term="X11" scheme="https://fredhdx.github.io/tags/X11/"/>
+    
+      <category term="Fctix" scheme="https://fredhdx.github.io/tags/Fctix/"/>
+    
+      <category term="display server" scheme="https://fredhdx.github.io/tags/display-server/"/>
+    
+      <category term="window manager" scheme="https://fredhdx.github.io/tags/window-manager/"/>
+    
+      <category term="display manager" scheme="https://fredhdx.github.io/tags/display-manager/"/>
+    
+      <category term="Desktop Environment" scheme="https://fredhdx.github.io/tags/Desktop-Environment/"/>
+    
+      <category term="Linux Partition" scheme="https://fredhdx.github.io/tags/Linux-Partition/"/>
+    
+      <category term="linux Chinese input" scheme="https://fredhdx.github.io/tags/linux-Chinese-input/"/>
+    
+      <category term="arch network configuration" scheme="https://fredhdx.github.io/tags/arch-network-configuration/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Search Engine Optimization for Hexo-next site</title>
+    <link href="https://fredhdx.github.io/hexo-seo/"/>
+    <id>https://fredhdx.github.io/hexo-seo/</id>
+    <published>2017-11-12T01:49:18.000Z</published>
+    <updated>2018-03-06T22:29:47.937Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This is an article publised by &lt;a href=&quot;http://www.ehcoo.com/seo.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;RuJia&lt;/a&gt; to set up simple SEO improvement on Hexo supported website. It targeted both on Google Search Engine and Baidu Search (an equivalent in China). It’s simple and elegant; therefore I translated into English for my own reference and hoping to help new bloggeres.
+    
+    </summary>
+    
+      <category term="programming" scheme="https://fredhdx.github.io/categories/programming/"/>
+    
+    
+      <category term="webdev" scheme="https://fredhdx.github.io/tags/webdev/"/>
+    
+      <category term="seo" scheme="https://fredhdx.github.io/tags/seo/"/>
+    
+      <category term="google-webmaster" scheme="https://fredhdx.github.io/tags/google-webmaster/"/>
+    
+      <category term="hexo" scheme="https://fredhdx.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Custmoizing Hexo blog theme-Next and Swiper</title>
+    <link href="https://fredhdx.github.io/next-customization/"/>
+    <id>https://fredhdx.github.io/next-customization/</id>
+    <published>2017-11-10T00:00:00.000Z</published>
+    <updated>2018-03-06T22:29:47.993Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;The first thing after moving into a new home is thinking about decoration. We want something more personal, something that represents our taste, style and preference. Or we just want the style that fits the theme, whether it’s sci-fi, techie, or kawaii. This is a scratch note on decorating a Hexo-based blog. It is based on some amazing guides from others. My effort is merely an application and translation.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="programming" scheme="https://fredhdx.github.io/categories/programming/"/>
+    
+    
+      <category term="webdev" scheme="https://fredhdx.github.io/tags/webdev/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Simple Guide to Set up Github Website</title>
+    <link href="https://fredhdx.github.io/setupGithubPage/"/>
+    <id>https://fredhdx.github.io/setupGithubPage/</id>
+    <published>2017-11-08T00:00:00.000Z</published>
+    <updated>2018-03-06T22:29:48.045Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Github Page provides a fast and easy way to set up a static website/blog. It uses Github as a free hosting platform, which comes with free domain, and Jekyll as a very simple site generator. Although there have been a million tutorial and documentation on how to use it, I found them usually over complicated and not easy to get started. Therefor I want to share my own experience setting up one blog from scratch with a chosen TEMPLATE; and you can just follow these steps to start your own site as well.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="programming" scheme="https://fredhdx.github.io/categories/programming/"/>
+    
+    
+      <category term="webdev" scheme="https://fredhdx.github.io/tags/webdev/"/>
+    
+      <category term="Jekyll" scheme="https://fredhdx.github.io/tags/Jekyll/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Use Travis-ci To Automate Github-page Build Process</title>
+    <link href="https://fredhdx.github.io/usetravis/"/>
+    <id>https://fredhdx.github.io/usetravis/</id>
+    <published>2017-11-08T00:00:00.000Z</published>
+    <updated>2018-03-06T22:29:48.045Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;For Github-page users who build their website with static website generator other than the natively-supported Jekyll, it is usually troublesome to have to re-build their entire website on a configured environment every time they want to make some minor changes or just to publish a new post. It is especially annoying when you have some exciting ideas to share but have no access to a computer that is set up with whatever static website generator you are using.&lt;/p&gt;
+&lt;p&gt;Here, I am going to share a very basic workflow setup that allows you to use &lt;a href=&quot;prose.io&quot;&gt;&lt;em&gt;Prose.io&lt;/em&gt;&lt;/a&gt; as your online post writer and &lt;a href=&quot;travis-ci.org&quot;&gt;&lt;em&gt;Travis-ci&lt;/em&gt;&lt;/a&gt; as your automation deployment worker for on-the-go Github blog publication.&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="programming" scheme="https://fredhdx.github.io/categories/programming/"/>
+    
+    
+      <category term="webdev" scheme="https://fredhdx.github.io/tags/webdev/"/>
+    
+      <category term="hexo" scheme="https://fredhdx.github.io/tags/hexo/"/>
+    
+      <category term="travis-ci" scheme="https://fredhdx.github.io/tags/travis-ci/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Blogging on Google Cloud Platform</title>
+    <link href="https://fredhdx.github.io/hexoGcloud/"/>
+    <id>https://fredhdx.github.io/hexoGcloud/</id>
+    <published>2017-09-19T21:09:26.000Z</published>
+    <updated>2018-03-06T22:29:47.977Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Github is more than enough to host your static website. It provides free storage, bandwidth and a in-house static website generator that builds your website online. However, there are occasions when you want to use other hosting services, for reasons such as not exposing your files directly, scaling-up freely based usage, and using plugins that are not supported by Github’s strict codecs. While there are many such services, I would like to introduce Google Cloud Platoform, which is nearly-free, code-friendly and built on the top cloud infrastructure.
+    
+    </summary>
+    
+      <category term="programming" scheme="https://fredhdx.github.io/categories/programming/"/>
+    
+    
+      <category term="webdev" scheme="https://fredhdx.github.io/tags/webdev/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>A Learning Note on Shell Programming: Commandline Argument Parser</title>
+    <link href="https://fredhdx.github.io/bashCommandparse/"/>
+    <id>https://fredhdx.github.io/bashCommandparse/</id>
+    <published>2017-09-19T21:09:26.000Z</published>
+    <updated>2018-03-06T22:29:47.929Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I have been working with shell script for some time, mostly for completing repeatable tasks can be described by few lines. In case where a file name or some arguments are needed, editing them directly in script would be preferred due to the script’s limited length and simple structure. For example, a script I used to copy files in the current directory to upper level directory with certain filename would look like:&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="programming" scheme="https://fredhdx.github.io/categories/programming/"/>
+    
+    
+      <category term="bash" scheme="https://fredhdx.github.io/tags/bash/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>A Simple Solution For Virtual Box Usage on Ubuntu/Debian 16.04 with Secure Boot</title>
+    <link href="https://fredhdx.github.io/vmOnubuntu17/"/>
+    <id>https://fredhdx.github.io/vmOnubuntu17/</id>
+    <published>2017-09-09T00:00:00.000Z</published>
+    <updated>2018-03-06T22:29:48.045Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;There are numerous cases in which an attempt to run virtualbox package on a Ubuntu/Debian machine fail. One of the cases has something to do with the way new Debian deals with secure boot loader, which is an unavoidable object for current machines, especially when you need a Windows/Linux dual-boot system. A simple and elegant solution for such case has been drafted by &lt;a href=&quot;https://askubuntu.com/users/518562/android-dev&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Android Dev&lt;/a&gt; at &lt;a href=&quot;askubuntu.com&quot;&gt;askubuntu&lt;/a&gt;. And I take the liberty to quote it here primarily for my own reference.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://fredhdx.github.io/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://fredhdx.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Github &amp; Linux Tips</title>
+    <link href="https://fredhdx.github.io/githubTips/"/>
+    <id>https://fredhdx.github.io/githubTips/</id>
+    <published>2017-09-07T00:00:00.000Z</published>
+    <updated>2018-03-06T22:29:47.937Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Github Page provides a fast and easy way to set up a static website/blog. Since it is managed as a code repository rather than a website, I figure that it is useful to provide some commonly needed tips for a Github newbee like me so that the job can be done efficiently with minimum distraction. So here we go.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="programming" scheme="https://fredhdx.github.io/categories/programming/"/>
+    
+    
+      <category term="Github" scheme="https://fredhdx.github.io/tags/Github/"/>
+    
+      <category term="webdev" scheme="https://fredhdx.github.io/tags/webdev/"/>
+    
+      <category term="linux" scheme="https://fredhdx.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SNH48 Team X 友情(CP)大乱炖 B站补档目录</title>
+    <link href="https://fredhdx.github.io/teamX-cp/"/>
+    <id>https://fredhdx.github.io/teamX-cp/</id>
+    <published>2016-10-29T00:00:00.000Z</published>
+    <updated>2018-03-06T22:29:48.045Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;主页没什么好说的，吃糖吃到饱，吃刀片吃到不知所措。。在梦旗一周年之际，又完成了自己饭偶像生涯中一个夙愿。&lt;/p&gt;
+&lt;p&gt;大家多来看看这群真情实感的小女生吧。&lt;/p&gt;
+&lt;p&gt;清流，并不意味着无趣，她们之间也一直迸发出各种有趣到让人瑟瑟发抖的火花。大家要耐心地观察。&lt;/p&gt;
+&lt;p&gt;当然，作为不要face的cp粉，喜欢的其实也只是看到她们关系融洽，快快乐乐地一起生活工作。偶像工作不容易，能够有一群可以互相信任互相依靠的朋友，粉丝父母看着也会快乐放心很多。多余的想法，不存在的。相遇相处，要珍惜的只是这一段段缘分和时光。&lt;/p&gt;
+&lt;p&gt;主页半路入坑，对很多梗都不了解，也可能有一些误解。所以请大家看到缺失或者不合适的地方私信主页，一定更正。&lt;/p&gt;
+&lt;p&gt;最后，祝X队小偶像《梦想的旗帜》一周年快乐，希望大家喜欢她们的新公演。&lt;/p&gt;
+&lt;p&gt;PS：希望友情的初心只有一个，希望明年还记得，不存在的。&lt;/p&gt;
+&lt;p&gt;PS: 有没有盆友私信我一点配图啊~想给每个CP配个图&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="SNH48" scheme="https://fredhdx.github.io/categories/SNH48/"/>
+    
+    
+      <category term="SNH48" scheme="https://fredhdx.github.io/tags/SNH48/"/>
+    
+  </entry>
+  
+</feed>

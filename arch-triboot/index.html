@@ -1,0 +1,316 @@
+<!DOCTYPE html><html class="theme-next gemini use-motion" lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" content="#222"><meta name="google-site-verification" content="v0OrECtdVkj5UBsT-m2uycBhubf93gLqqP49ewDOLDI"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css"><meta name="keywords" content="Arch,Linux,UEFI,multiboot,KDE Plasma,Zsh,Vim,Linux Graphic Stack,sddm,Xorg,X11,Fctix,display server,window manager,display manager,Desktop Environment,Linux Partition,linux Chinese input,arch network configuration,"><link rel="alternate" href="/atom.xml" title="A Scattered Note on Web-Dev" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2"><meta name="description" content="Before Start I have had my Ubuntu + Windows dual-boot workstation set for quite while. Then I realize that I need an additional Linux installation in case my Work Ubuntu broke down. Since this 3rd dis"><meta name="keywords" content="Arch,Linux,UEFI,multiboot,KDE Plasma,Zsh,Vim,Linux Graphic Stack,sddm,Xorg,X11,Fctix,display server,window manager,display manager,Desktop Environment,Linux Partition,linux Chinese input,arch network configuration"><meta property="og:type" content="article"><meta property="og:title" content="Install Arch Linux with Ubuntu and Windows"><meta property="og:url" content="https://fredhdx.github.io/arch-triboot/index.html"><meta property="og:site_name" content="A Scattered Note on Web-Dev"><meta property="og:description" content="Before Start I have had my Ubuntu + Windows dual-boot workstation set for quite while. Then I realize that I need an additional Linux installation in case my Work Ubuntu broke down. Since this 3rd dis"><meta property="og:locale" content="en"><meta property="og:image" content="https://fredhdx.github.io/arch-triboot/Linux_graphical_scheme.png"><meta property="og:image" content="https://fredhdx.github.io/arch-triboot/X_graphical_scheme.png"><meta property="og:updated_time" content="2018-03-06T22:29:47.925Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Install Arch Linux with Ubuntu and Windows"><meta name="twitter:description" content="Before Start I have had my Ubuntu + Windows dual-boot workstation set for quite while. Then I realize that I need an additional Linux installation in case my Work Ubuntu broke down. Since this 3rd dis"><meta name="twitter:image" content="https://fredhdx.github.io/arch-triboot/Linux_graphical_scheme.png"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Gemini",version:"5.1.2",sidebar:{position:"left",display:"post",offset:12,offset_float:12,b2t:!1,scrollpercent:!0,onmobile:!1},fancybox:!0,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn"}},duoshuo:{userId:"0",author:"Author"},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><link rel="canonical" href="https://fredhdx.github.io/arch-triboot/"><title>Install Arch Linux with Ubuntu and Windows | A Scattered Note on Web-Dev</title><script>!function(e,a,t,n,g,c,o){e.GoogleAnalyticsObject=g,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),o=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",o.parentNode.insertBefore(c,o)}(window,document,"script",0,"ga"),ga("create","UA-106321938-2","auto"),ga("send","pageview")</script></head><body itemscope itemtype="http://schema.org/WebPage" lang="en"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">A Scattered Note on Web-Dev</span><span class="logo-line-after"><i></i></span></a></div><p class="site-subtitle"></p></div><div class="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br> Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br> Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br> Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br> Categories</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br> Search</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i></span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"> <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://fredhdx.github.io/arch-triboot/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="KnightR"><meta itemprop="description" content=""><meta itemprop="image" content="/images/avatar.jpg"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="A Scattered Note on Web-Dev"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">Install Arch Linux with Ubuntu and Windows</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">Posted on</span> <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-01T00:00:00+00:00">2017-12-01</time></span> <span class="post-category"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span> <span class="post-meta-item-text">In</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/programming/" itemprop="url" rel="index"><span itemprop="name">programming</span></a></span></span> <span class="post-comments-count"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-comment-o"></i></span><a href="/arch-triboot/#comments" itemprop="discussionUrl"><span class="post-comments-count hc-comment-count" data-xid="arch-triboot/" itemprop="commentsCount"></span></a></span> <span class="post-meta-divider">|</span><span class="page-pv"><i class="fa fa-file-o"></i><span class="busuanzi-value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body" itemprop="articleBody"><h1 id="before-start">Before Start</h1><p>I have had my Ubuntu + Windows dual-boot workstation set for quite while. Then I realize that I need an additional Linux installation in case my Work Ubuntu broke down. Since this <strong>3rd</strong> distro would be primarily used for resue and leisure experimentation, I choose <a href="https://www.archlinux.org/" target="_blank" rel="noopener">Arch Linux</a> for its high customizability and compact initial size.</p><a id="more"></a><p>Though I have installed Ubuntu/Mint/other more decorated distro million times, I foudn installing Arch linux rather interesting and refreshing. Since it starts with so few basic packages, you really get to know what packages are for what and how the kernel works behind the scene.</p><p>Few <strong>warnings</strong> beforehand: + Arch Linux installation requires <strong>valid internet connection</strong></p><p><code>there are ways to install without, but it is rather complicated</code> + Arch Linux requires turning off <strong>secure boot</strong> if you have it + You will not have graphical interface after valina installation + Always <strong>back up</strong> your important files and work in paritions allocated by existing OS (so you won’t mess with existing data)</p><p>Some <strong>exictiments</strong> to look forward to: + Pair your base system with any <code>Desktop Environment (DE)</code> you like, wether it’s KDE, Gnome, or XDFE + Choose your own <code>display manager</code>, such as lightdm, ssdm, xterm, etc + Get along with <code>pacman</code>, which is powerful and simplier than <code>apt-get</code></p><p>Now let’s begin.</p><h1 id="disk-configuration-before-install">Disk configuration before install</h1><table><thead><tr class="header"><th>Partition</th><th>Description</th><th>Size</th><th>Type</th></tr></thead><tbody><tr class="odd"><td>The</td><td>bootloaders</td><td>…</td><td>…</td></tr><tr class="even"><td>sda1</td><td>msft mbr partition</td><td>472 MB</td><td>ntfs</td></tr><tr class="odd"><td>sda2</td><td>EFI bootloader</td><td>105 MB</td><td>fat32</td></tr><tr class="even"><td>The</td><td>Windows</td><td>…</td><td>…</td></tr><tr class="odd"><td>sda3</td><td>msft reserved</td><td>16.8 MB</td><td>msftres</td></tr><tr class="even"><td>sda4</td><td>Windows 10</td><td>214 GB</td><td>ntfs</td></tr><tr class="odd"><td>sda5</td><td>unknown</td><td>1 GB</td><td>ntfs</td></tr><tr class="even"><td>The</td><td>Ubuntu</td><td>…</td><td>…</td></tr><tr class="odd"><td>sda6</td><td>Linux Swap</td><td>10 GB</td><td>swap</td></tr><tr class="even"><td>sda7</td><td>Ubuntu 17(/)</td><td>70 GB</td><td>ext4</td></tr><tr class="odd"><td>sda8</td><td>Ubuntu 17(/home)</td><td>174 GB</td><td>ext4</td></tr><tr class="even"><td>sda9</td><td>Cross-OS Data</td><td>215 GB</td><td>ntfs</td></tr><tr class="odd"><td>Some</td><td>free</td><td>space</td><td>…</td></tr></tbody></table><p><strong>Active Bootloader</strong>: UEFI(sda2)</p><p><strong>Partition table</strong>: gpt</p><p><strong>Data disk</strong>: NTFS(sda9)</p><p><strong>Free space</strong>: at end of disk</p><h1 id="bootloader">Bootloader</h1><blockquote><p>We are going to implement an <strong>UEFI multiboot</strong> system for our triple system configurations. The UEFI bootloader basically works as this: give UEFI bootloader one <strong>single</strong> partition; each OS will have one <strong>directory</strong> as one entry for bootloader with its own name under this UEFI partition. A detailed explanation can be found <a href="https://unix.stackexchange.com/questions/160500/how-do-multiple-boot-loaders-work-on-an-efi-system-partition" target="_blank" rel="noopener">here</a>.</p></blockquote><p>Since the disk already contains a Microsoft <code>mbr bootloader(sda1)</code> and a Linux <code>UEFI grub bootloader(sda2)</code>, with the UEFI bootloader being the active one, I will <strong>not</strong> create additional bootloader partition for Arch Linux and just <strong>mount</strong> the existing UEFI boot partition into <code>/boot</code>. Wait till reaching the <a href="#install-arch-linux">Install Arch Linux</a> section.</p><p><em>Note: my method works with <code>gpt</code> partition table and UEFI system. You will need to research for different combinations.</em></p><p><em>For more information: <a href="https://wiki.archlinux.org/index.php/Arch_boot_process" target="_blank" rel="noopener">Official Boot Guide</a></em></p>  <center> <i>Now I have introduced some necessary backgrounds and concepts, it is prompt to proceed to the install methodology. First, we will look at the preparation steps.</i></center><p> </p><h1 id="preparation">Preparation</h1><h2 id="create-live-usb">Create Live-USB</h2><p><a href="https://www.archlinux.org/download/" target="_blank" rel="noopener">Download</a></p><p>It is recommened by <a href="https://wiki.archlinux.org/index.php/USB_flash_installation_media#In_GNU.2FLinux" target="_blank" rel="noopener">official docs</a> to use <code>dd</code> command to create live-usb. <code>dd</code> will destroy any data on your usb so make sure to use the correct device.</p><p>(do <strong>not</strong> append partition number such as <code>sda1</code>, just use <code>sda</code>)</p><p><code># dd bs=4M if=/path/to/archlinux.iso of=/dev/sdx status=progress &amp;&amp; sync</code></p><p>However, my drive created with <code>dd</code> does not boot correctly, so I used <a href="https://etcher.io/" target="_blank" rel="noopener">etcher</a> to create the live-usb. It might be your back-up solution.</p><h2 id="turn-off-secure-boot">Turn off Secure Boot</h2><p><code>Secure boot</code> might be the most redundant function added by Microsoft, aside from forcing automatic updates. It adds a lot of complication to the booting sequence and creates problems for unsigned binaries from other OS. The Arch installer will <strong>not</strong> work with secure boot by default. So I will just disable it. If you are interested maintaining it, there is an entire <a href="https://wiki.archlinux.org/index.php/Secure_Boot" target="_blank" rel="noopener">article</a> on how-tos.</p><p>Depending on your motherboard, the Secure Boot might require different methods to be turned off.</p><p>For my <code>ASUS</code> laptop, I do</p><ol style="list-style-type:decimal"><li>Enter BIOS settings by press <code>F2</code></li><li>Go to <code>Secure</code> settings</li><li>Choose <code>Delete all keys</code></li><li>Save &amp; Exits</li></ol><p>Additional refs: <a href="https://technet.microsoft.com/en-us/library/dn481258.aspx" target="_blank" rel="noopener">Microsoft</a>,<a href="https://www.howtogeek.com/175641/how-to-boot-and-install-linux-on-a-uefi-pc-with-secure-boot/" target="_blank" rel="noopener">How-to-Geek</a>, <a href="https://www.qualityology.com/tech/disable-asus-motherboards-uefi-secure-boot/" target="_blank" rel="noopener">Qualityology</a></p><p>You can also turn off <code>fast boot</code>, which is not requried though.</p><h2 id="boot-into-live-usb">Boot into Live-USB</h2><p>After loading finished, you should be logged in as: <code>root@archiso</code></p><h2 id="wifi-configuration">WIFI configuration</h2><p>As I warned you, Arch Linux requires valid <strong>internet connection</strong> throughout installation. I did not understand why though people are saying things like</p><p><code>You will not be able to see the benefits of Arch Linux without a consistent internet connection.</code></p><p>Well, at least this is an <a href="https://wiki.archlinux.org/index.php/offline_installation_of_packages" target="_blank" rel="noopener">official way</a> to install without internet, which adds more trouble. So we will stick with internet; anyways you will need to learn setting up internet in the non-graphical terminal to install your DE and internet manager later.</p><p><strong>So, let’s start</strong>.</p><p>The official wireless configuration guide is <a href="https://wiki.archlinux.org/index.php/Wireless_network_configuration" target="_blank" rel="noopener">here</a>. I will just extract the key steps admist all those details and explanations (worthy reading though).</p><p><strong>Used packages</strong>: <code>iw</code>, <code>wpa_supplicant</code> and <code>dhcpcd</code></p><p><strong>3 Steps</strong>:</p><ol start="0" style="list-style-type:decimal"><li><p>Check <strong><em>driver status</em></strong>: <code>lspci -k</code></p></li><li><p>Configure <strong><em>wireless interface</em></strong>:</p><ol style="list-style-type:decimal"><li><p>Get interace name: <code>iw dev</code> -&gt; <code>interface: wlps20/wlan0</code></p></li><li><p>Get link status: <code>iw dev interface link</code></p></li><li><p>Activate interface: <code>ip link set interface up</code></p></li><li>Check interface status: <code>ip link show interface</code> -&gt; <code>wlan0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt;</code>. The <code>UP</code> means the interface is up.</li></ol></li><li><p>Configure <strong><em>access point</em></strong>:</p><blockquote><p>The access point is basically each of the wifi SSIDs you see in either Windows or Ubuntu network manager.</p></blockquote><ol style="list-style-type:decimal"><li><p>Scan for SSIDs: <code>iw dev interface scan | less</code> -&gt; <code>your SSID</code></p></li><li><p>Connect to the SSID: <code>wpa_supplicant -B -i interface -c &lt;(wpa_passphrase MYSSID passphrase)</code> -&gt; <code>Successfully initialized wpa_supplicant</code></p></li></ol><blockquote><p>wpa_passphrase generates a minimal configuration text block used by wpa_supplicant.</p></blockquote></li><li><p>Get an <strong><em>IP address</em></strong></p><p><code>dhcpcd wlan0</code></p></li></ol><p>That’s all you need to do. I won’t bother turning it off since you need internet throughout the installation.</p><p>Update: you can use <code>wifi-menu</code>, which is much simpler.</p><p>Again, for any questions, read the <a href="https://wiki.archlinux.org/index.php/Wireless_network_configuration#Check_the_driver_status" target="_blank" rel="noopener">official doc</a>.</p><h2 id="partitioning">Partitioning</h2><p>Now it’s time to set up your disk space.</p><p>For basic installation, Arch only requires <code>/</code> partition and <code>bootloader</code> partition. <code>swap</code> partition is optional but recommended. Separate <code>/home</code>, <code>/software</code> and other schemes are just of your own choice.</p><p><a href="https://wiki.archlinux.org/index.php/Partitioning#Partitionless_disk" target="_blank" rel="noopener">Official Paritioning Guide</a></p><p><a href="https://wiki.archlinux.org/index.php/File_systems#Create_a_file_system" target="_blank" rel="noopener">Official File System Guide</a></p><p>In my case, I want to <strong>share</strong> the <code>UEFI bootloader</code> and <code>linux swap</code> partitions that have been set by the old Ubuntu. So all I need to do is to create a new partition <code>sda10</code> (40 GB) for Arch Linux and mount the existing <code>sda2</code> and <code>sda6</code> partition as <code>/boot</code> and <code>/swap</code> respectively. Refer to this <a href="#disk-configuration-before-install">table</a> for the old disk configuration again.</p><p>The new partition can either be created before running the live-usb or during the installation process.</p><p>Useful utitlies: <code>parted/gparted</code>, <code>fdisk</code></p><p>A simple example to create partition within the live-usb:</p><ol style="list-style-type:decimal"><li>Enter <code>parted</code> interface: <code>parted</code> -&gt; <code>(parted)</code></li><li><p>Check partitions: <code>(parted) print</code></p><p>You should see something like this:</p><p><code>Disk /dev/sda: 100GB</code></p><p><code>Partition Table: gpt</code></p><p><code>Disk Flags:</code></p><table><thead><tr class="header"><th>Number</th><th>Start</th><th>End</th><th>Size</th><th>Type</th><th>File System</th><th>Flags</th></tr></thead><tbody><tr class="odd"><td>1</td><td>100kB</td><td>10GB</td><td>9999MB</td><td>primary</td><td>ext4</td><td>lba</td></tr></tbody></table></li><li>Create new partition: <code>(parted) mkpart</code></li><li><p>Quit (do <strong>not</strong> format yet): <code>(parted) quit</code></p></li></ol><h1 id="install-arch-linux">Install Arch Linux</h1><h2 id="format-new-partition">Format new partition:</h2><p>Check again: <code>lsblk /dev/sda</code></p><p>Format Arch parition: <code>mkfs.ext4 /dev/sda10</code></p><p>Turn on swap partition (existing): <code>swapon /dev/sda6</code></p><p><em>Remember the <code>swap</code> and <code>boot</code> partitions already exist. If not: refer to <a href="https://www.tecmint.com/parted-command-to-create-resize-rescue-linux-disk-partitions/" target="_blank" rel="noopener">use parted</a> and <a href="http://www.leyar.me/installation-of-archlinux/" target="_blank" rel="noopener">Arch Install Notes</a> on how-tos.</em></p><h2 id="mount-necessary-partitions">Mount necessary partitions</h2><p><code>mkdir /mnt</code> (create mount point)</p><p><code>mount /dev/sda10 /mnt</code> (mount <code>/</code> partition)</p><p><code>mkdir /mnt/boot</code> (create boot location)</p><p><code>mount /dev/sda2 /mnt/boot</code> (mount <code>/boot</code> partition)</p><h2 id="select-mirror-image">Select mirror image</h2><p><code>vi /etc/pacman.d/mirrorlist</code></p><p><strong>Uncomment</strong> the ones you want to use and put them on <strong>top</strong> of the list for speed.</p><p>Use <code>pacman -Syy</code> to refresh after saving file.</p><h2 id="install-base-packages">Install base packages</h2><p><code>pacstrap -i /mnt base base-devel</code></p><h2 id="generate-file-system-tablefstab">Generate file system table(Fstab)</h2><p><code>genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab</code></p><p>Check: <code>vi /mnt/etc/fstab</code></p><h2 id="change-the-root-into-new-system">Change the root into new system</h2><p><code>arch -chroot /mnt /bin/bash</code></p><h2 id="system-configurationbasic">System configuration(basic)</h2><h3 id="locale">Locale</h3><p><code>vi /etc/locale.gen</code></p><p>Uncomment needed entries such as <code>en_US.UTF-8 UTF-8</code> and <code>zh-CN.UTF-8 UTF-8</code></p><p>Generate locale file: <code>locale-gen</code></p><p>Add <code>LANG=en_US.UTF-8</code> to <code>/etc/locale.conf</code> to set <code>LANG</code> variable.</p><h3 id="timezone">Timezone</h3><p><code>ln -sf /usr/share/zoneinfo/Region/City /etc/localtime</code></p><h3 id="hostname">Hostname</h3><p>Add your <em>hostname</em> to <code>vi /etc/hostname</code></p><p>Consider adding entries to <code>/etc/hosts</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">127.0.0.1	  localhost.localdomain	  localhost</div><div class="line">::1         localhost.localdomain	  localhost</div><div class="line">127.0.1.1	  myhostname.localdomain  myhostname</div></pre></td></tr></table></figure><h3 id="network-configuration">Network configuration</h3><p>The newly installed system has <strong>no network</strong>. Our previous configuration is with the live-usb only (we are still on it). And the valina Arch does <strong>not</strong> have packages such as <code>iw</code> and <code>wpa_supplicant</code> installed. So if you just leave now and boot into the new system, you will not be able to connect to internet(at least not very convinient).</p><p>So what is needed is to configure the internet(wireless or wired) now.</p><p>For wireless configuraton, follow the previous <a href="#wifi-configuration">section</a>. Basically, you install <code>iw</code> and <code>wpa_supplicant</code> packages while connected through the live-usb environment. You can also install <code>dialog</code> package if you choose to use <code>wifi-menu</code> instead.</p><p>For other configuration options, check the <a href="https://wiki.archlinux.org/index.php/Network_configuration#Network_managers" target="_blank" rel="noopener">official network manager guide</a>.</p><h3 id="root-password">Root password</h3><p><code>passwd</code></p><h3 id="bootloader-optional">Bootloader (optional)</h3><p>If you already have another bootloader installed from previous linux distros, do not install another one!</p><p>If not, check this <a href="https://wiki.archlinux.org/index.php/Category:Boot_loaders" target="_blank" rel="noopener">page</a> for information.</p><p>A simple procedure to set up new bootloader focusing on <strong>BIOS</strong> + <strong>GRUB</strong> is like this:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">pacman -S grub # install grub</div><div class="line">grub-install --target=i386-pc --recheck /dev/sda</div><div class="line">pacman -S os-prober # check existing OS on hard disks</div><div class="line">grub-mkconfig -o /boot/grub/grub.cfg # generate grub entries</div><div class="line">update-grub # (optional)</div></pre></td></tr></table></figure><h3 id="reboot">Reboot</h3><p><code>exit</code> <code>reboot</code></p><h3 id="some-post-installation-setup">Some post-installation setup</h3><p><strong>Install zsh</strong>:</p><p><code>pacman -S zsh</code></p><p><strong>Create new users</strong>:</p><p><code>useradd -m -g users -G wheel, video, audio, floppy, network, rfkill, scanner, storage, optical, power, uucp -s /bin/bash newusername</code> (note: do not use <code>/usr/bin/bash</code> as the official installation guide points out)</p><p><code>passwd newusername</code></p><p><strong>Install and configure sudo package</strong>:</p><p><code>pacman -S sudo</code></p><p><code>vi /etc/sudoers # edit the sudo conf file</code></p><p>uncomment the line to add all users belonging to the <code>wheel</code> group to the sudoers group</p><p><code>%wheel ALL=(ALL) ALL</code></p><h2 id="arch-installation-conclusion">Arch Installation Conclusion</h2><p>The previous sections describes <strong>how to install a valina Arch linux distro on a Ubuntu-Windows dual booting hard drive with existing UEFI GRUB bootloader</strong> and <strong>sharing the current bootloader and SWAP partitions</strong>.</p><p>The key is to <strong>mount existing UEFI boot partition and swap partition into the new Arch installation</strong>, and <strong>do NOT install additional bootloader</strong>.</p><p>Also remember to <strong>configure network</strong> for the new Arch <strong>before reboot</strong>.</p><h3 id="but-what-happens-if-you-forget-to-configure-internet">But what happens if you forget to configure internet</h3><p>and cannot connect to your WIFI in the new Arch? Don’t worry, just reboot into the live-usb, connect to wifi here and <code>mount /dev/sdxx /mnt</code> to install missing packages.</p><p>This is also the case if you forget or break other base packages in your new Arch system.</p><h2 id="reference">Reference</h2><ol style="list-style-type:decimal"><li><a href="http://www.leyar.me/installation-of-archlinux/" target="_blank" rel="noopener">Archlinux 安装笔记 (highly recommened)</a></li><li><a href="https://wiki.archlinux.org/index.php/Installation_guide" target="_blank" rel="noopener">Official Installation Guide (highly recommended)</a></li><li><a href="https://www.tecmint.com/arch-linux-installation-and-configuration-guide/" target="_blank" rel="noopener">Arch Linux Installation and Configuration on UEFI Machines</a></li><li><a href="http://blog.lucode.net/linux/archlinux-install-tutorial.html" target="_blank" rel="noopener">Archlinux 安装教程</a></li><li><a href="http://blog.lucode.net/linux/archlinux-install-tutorial.html" target="_blank" rel="noopener">ArchLinux 安装笔记</a></li></ol><p> </p><center> <i>Now the valina Arch linux has been installed and you should be able to see its name appearing on the boot entries. But this new Linux does not have any graphical environment and everything you want to do has to be done in a cumbersome way with bash such as connecting to the internet. So, the next section is to install a dispalay manager, a desktop environment and a network manager with GUI that are suitable for a human to use.</i></center><p> </p><h1 id="install-kde-plasma-desktop-environment">Install KDE Plasma Desktop Environment</h1><h2 id="presequisite-xorg-x11-wayland-sddm-kde-plasma-etc">Presequisite: Xorg, X11, Wayland, SDDM, KDE, Plasma, etc</h2><p>So in order to install and run KDE Plasma successfully, we have to install some presequisite packages. These pacakges have similar names, a lot of alternatives, classified into ambiguous concepts; some of them even happen to be dependencies of each other.</p><p>Thus it is very confusing at first by just looking at some guides and Stackoverflow on how-to-install. These guides will likely to work, or not, depending on the default pacakges included in the valina Arch linux. Therefore, I researched a little more into those required packages, and attempts to generate a more thorough understanding both in concepts and methodology. If you see anything wrong or mis-leading, please let me know in the comment area. It’s still a learning process.</p><p><strong>So, let’s talk concepts</strong>.</p><p>What all those packages trying to do, is to contribute to a <strong>graphical user interface (GUI)</strong> on top of non-graphical Linux kernels. This interface connects user inputs (display, keyboard, audio) from each application that requires rendering service (<strong>client</strong>) and <strong>kernel</strong> instructions, which ultimately communicates with <strong>hardware</strong>. The interface follows standards, or <strong>protocals</strong>(<a href="%5Bref2%5D(https://www.intel.com/content/dam/www/public/us/en/documents/white-papers/inside-linux-graphics-paper.pdf)">ref</a>).</p><p>A <strong>display server</strong> is an application that provides services for creating this GUI. The <strong>Xorg</strong> server uses <strong>X11</strong> protocal, abbreviated also as <strong>X Window System</strong> or just <strong>X</strong>(<a href="https://wiki.gentoo.org/wiki/Xorg/Guide" target="_blank" rel="noopener">ref1</a>,<a href="http://blog.mecheye.net/2012/06/the-linux-graphics-stack/" target="_blank" rel="noopener">ref2</a>).</p><p>A <strong>window manager</strong> is a X client that controls the appearance and behaviour of the frames where other graphical applications are drawn. It can be part of a desktop environment or used standalone (<a href="https://wiki.archlinux.org/index.php/Window_manager" target="_blank" rel="noopener">ref</a>).It is sometimes a <strong>dependency</strong> for some display servers to function properly.</p> <img src="/arch-triboot/Linux_graphical_scheme.png" title="Linux_graphical_scheme"><p>A <strong>display manager/login manager</strong> provides a graphical interface for log-in screen. It is considered the <strong>first</strong> X client at the end of boot process. It replaces the default text terminal session. <strong>SDDM</strong> and <strong>LightDM</strong> are examples of it.</p><p>Finally, a <strong>Desktop Environment</strong> is a complete collection of not only a graphical interface, but also programs written with the same set of toolkit and rules(clients), and of many useful libraries. The usual examples of DE on Linux/Unit are Gnome, KDE, XFCE, Cinnamon etc.</p><p>A special note for X server: It not only manages the local GUI, but also provides remote management.</p> <img src="/arch-triboot/X_graphical_scheme.png" title="X_graphical_scheme"><p> </p><p><strong>Now, after clearing the concepts, let’s talk about installing the X server + KDE DE</strong>.</p><h2 id="install-kde-plasma">Install KDE Plasma</h2><ol style="list-style-type:decimal"><li><p>Install proper <strong>graphic card driver</strong></p><p><code>pacman -S mesa xf86-video-intel # intel card</code></p><p><a href="https://wiki.archlinux.org/index.php/xorg#Driver_installation" target="_blank" rel="noopener">additional driver info</a></p></li><li><p>Install <strong>Xorg</strong></p><p><code>pacman -S xorg--server xorg-xinit xorg-xauth xterm</code></p><p><a href="https://wiki.archlinux.org/index.php/xorg#Driver_installation" target="_blank" rel="noopener">xorg-server</a> provides the x service.</p><p><a href="https://wiki.archlinux.org/index.php/Xinit" target="_blank" rel="noopener">xinit</a> provides easier startup configuration at <code>~/.xinitrc</code>.</p><p><a href="https://wiki.archlinux.org/index.php/Xterm" target="_blank" rel="noopener">xterm</a> might be needed for proper xorg function (not 100% sure).</p><p><a href="http://jlk.fjfi.cvut.cz/arch/manpages/man/xauth.1.en" target="_blank" rel="noopener">xauth</a> is required for xsession authentication.</p><p><code>Config file: /etc/X11/xinit/xinitrc</code></p></li><li><p>Install <strong>sddm</strong> display Manager</p><p><code>pacman -S sddm sddm-kcm</code></p></li><li><p>Enable <code>sddm</code> for graphical login</p><ol style="list-style-type:decimal"><li><p><code>systemctl enable sddm</code></p></li><li><p><code>/etc/systemd/system/display-manager.service: symbolic link to /usr/lib/systemd/system/sddm.service</code></p></li></ol></li><li><p>Install <strong>Plasma DE</strong></p><p><code>pacman -S plasma-meta</code></p></li><li><p>Configure <code>sddm</code> for Plasma</p></li></ol><p></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sddm config file: /etc/sddm.conf</div><div class="line">comment out UserAuthFile=.Xauthority</div></pre></td></tr></table></figure><p></p><p><code>remove ~/.Xauthority</code></p><ol start="7" style="list-style-type:decimal"><li><p>Install <strong>network manager</strong></p><p><code>pacman -S networkmanager</code></p></li><li><p>Reboot</p></li></ol><h1 id="bonus1-install-chinese-input-method-fctix">Bonus1: Install Chinese Input Method (Fctix)</h1><ol style="list-style-type:decimal"><li>Install <strong>Fctix</strong></li><li>Install <strong>Fctix-googlepinyin</strong></li><li><p>Add entries to <strong>~/.xprofile</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export QT_IM_MODULE=fcitx</div><div class="line">export GTK_IM_MODULE=fcitx</div></pre></td></tr></table></figure></li><li>Log out and log in</li><li><p>Set <code>default keyboard layout</code> to <code>US</code> in <code>Configure</code></p></li></ol><h1 id="bonus2-install-zshvim-configuration">Bonus2: Install zsh/vim configuration</h1><p>The <strong>ultimate vim vimrc</strong> at <a href="https://github.com/spf13/spf13-vim" target="_blank" rel="noopener">spf13/spf13-vim</a></p><p>The <strong>Oh My Zsh framework</strong> at<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener">robbyrussell/oh-my-zsh</a></p><p><em>Small tricks on <code>~/.vimrc</code></em>:</p><ol style="list-style-type:decimal"><li>Allow mouse copy: change <code>set mouse=a</code> to <code>set mouse=r</code></li><li>Toggle line-number: add <code>nnoremap &lt;F2&gt; :set nonumber!&lt;CR&gt;</code></li><li>Code folding shortcut: <code>&lt;leader&gt;f&lt;level&gt;</code> (example: <code>&lt;leader&gt;f0</code>)</li><li>The <code>&lt;leader&gt;</code> key is mapped to <code>,</code></li></ol></div><div><ul class="post-copyright"><li class="post-copyright-author"> <strong>Post author:</strong> KnightR</li><li class="post-copyright-link"> <strong>Post link:</strong> <a href="https://fredhdx.github.io/arch-triboot/" title="Install Arch Linux with Ubuntu and Windows">https://fredhdx.github.io/arch-triboot/</a></li><li class="post-copyright-license"> <strong>Copyright Notice:</strong> All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.</li></ul></div><footer class="post-footer"><div class="post-tags"> <a href="/tags/Arch/" rel="tag"># Arch</a> <a href="/tags/Linux/" rel="tag"># Linux</a> <a href="/tags/UEFI/" rel="tag"># UEFI</a> <a href="/tags/multiboot/" rel="tag"># multiboot</a> <a href="/tags/KDE-Plasma/" rel="tag"># KDE Plasma</a> <a href="/tags/Zsh/" rel="tag"># Zsh</a> <a href="/tags/Vim/" rel="tag"># Vim</a> <a href="/tags/Linux-Graphic-Stack/" rel="tag"># Linux Graphic Stack</a> <a href="/tags/sddm/" rel="tag"># sddm</a> <a href="/tags/Xorg/" rel="tag"># Xorg</a> <a href="/tags/X11/" rel="tag"># X11</a> <a href="/tags/Fctix/" rel="tag"># Fctix</a> <a href="/tags/display-server/" rel="tag"># display server</a> <a href="/tags/window-manager/" rel="tag"># window manager</a> <a href="/tags/display-manager/" rel="tag"># display manager</a> <a href="/tags/Desktop-Environment/" rel="tag"># Desktop Environment</a> <a href="/tags/Linux-Partition/" rel="tag"># Linux Partition</a> <a href="/tags/linux-Chinese-input/" rel="tag"># linux Chinese input</a> <a href="/tags/arch-network-configuration/" rel="tag"># arch network configuration</a></div><div class="post-widgets"><div class="wp_rating"><div id="wpac-rating"></div></div></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/hexo-seo/" rel="next" title="Search Engine Optimization for Hexo-next site"><i class="fa fa-chevron-left"></i> Search Engine Optimization for Hexo-next site</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"> <a href="/upnp-ubuntu/" rel="prev" title="Set up Home Streaming Library on Ubuntu (UPNP)">Set up Home Streaming Library on Ubuntu (UPNP)<i class="fa fa-chevron-right"></i></a></div></div></footer></div></article><div class="post-spread"></div></div></div><div class="comments" id="comments"><div id="hypercomments_widget"></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap"> Table of Contents</li><li class="sidebar-nav-overview" data-target="site-overview"> Overview</li></ul><section class="site-overview sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"> <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="KnightR"><p class="site-author-name" itemprop="name">KnightR</p><p class="site-description motion-element" itemprop="description"></p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"> <a href="/archives/"><span class="site-state-item-count">14</span> <span class="site-state-item-name">posts</span></a></div><div class="site-state-item site-state-categories"> <a href="/categories/index.html"><span class="site-state-item-count">4</span> <span class="site-state-item-name">categories</span></a></div><div class="site-state-item site-state-tags"> <a href="/tags/index.html"><span class="site-state-item-count">42</span> <span class="site-state-item-name">tags</span></a></div></nav><div class="feed-link motion-element"><a href="/atom.xml" rel="alternate"><i class="fa fa-rss"></i> RSS</a></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/fredhdx" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i> GitHub</a></span></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#before-start"><span class="nav-number">1.</span> <span class="nav-text">Before Start</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#disk-configuration-before-install"><span class="nav-number">2.</span> <span class="nav-text">Disk configuration before install</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bootloader"><span class="nav-number">3.</span> <span class="nav-text">Bootloader</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#preparation"><span class="nav-number">4.</span> <span class="nav-text">Preparation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#create-live-usb"><span class="nav-number">4.1.</span> <span class="nav-text">Create Live-USB</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#turn-off-secure-boot"><span class="nav-number">4.2.</span> <span class="nav-text">Turn off Secure Boot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#boot-into-live-usb"><span class="nav-number">4.3.</span> <span class="nav-text">Boot into Live-USB</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wifi-configuration"><span class="nav-number">4.4.</span> <span class="nav-text">WIFI configuration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#partitioning"><span class="nav-number">4.5.</span> <span class="nav-text">Partitioning</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#install-arch-linux"><span class="nav-number">5.</span> <span class="nav-text">Install Arch Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#format-new-partition"><span class="nav-number">5.1.</span> <span class="nav-text">Format new partition:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mount-necessary-partitions"><span class="nav-number">5.2.</span> <span class="nav-text">Mount necessary partitions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#select-mirror-image"><span class="nav-number">5.3.</span> <span class="nav-text">Select mirror image</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#install-base-packages"><span class="nav-number">5.4.</span> <span class="nav-text">Install base packages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#generate-file-system-tablefstab"><span class="nav-number">5.5.</span> <span class="nav-text">Generate file system table(Fstab)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#change-the-root-into-new-system"><span class="nav-number">5.6.</span> <span class="nav-text">Change the root into new system</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#system-configurationbasic"><span class="nav-number">5.7.</span> <span class="nav-text">System configuration(basic)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#locale"><span class="nav-number">5.7.1.</span> <span class="nav-text">Locale</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#timezone"><span class="nav-number">5.7.2.</span> <span class="nav-text">Timezone</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hostname"><span class="nav-number">5.7.3.</span> <span class="nav-text">Hostname</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#network-configuration"><span class="nav-number">5.7.4.</span> <span class="nav-text">Network configuration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#root-password"><span class="nav-number">5.7.5.</span> <span class="nav-text">Root password</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bootloader-optional"><span class="nav-number">5.7.6.</span> <span class="nav-text">Bootloader (optional)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reboot"><span class="nav-number">5.7.7.</span> <span class="nav-text">Reboot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#some-post-installation-setup"><span class="nav-number">5.7.8.</span> <span class="nav-text">Some post-installation setup</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#arch-installation-conclusion"><span class="nav-number">5.8.</span> <span class="nav-text">Arch Installation Conclusion</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#but-what-happens-if-you-forget-to-configure-internet"><span class="nav-number">5.8.1.</span> <span class="nav-text">But what happens if you forget to configure internet</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">5.9.</span> <span class="nav-text">Reference</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#install-kde-plasma-desktop-environment"><span class="nav-number">6.</span> <span class="nav-text">Install KDE Plasma Desktop Environment</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#presequisite-xorg-x11-wayland-sddm-kde-plasma-etc"><span class="nav-number">6.1.</span> <span class="nav-text">Presequisite: Xorg, X11, Wayland, SDDM, KDE, Plasma, etc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#install-kde-plasma"><span class="nav-number">6.2.</span> <span class="nav-text">Install KDE Plasma</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bonus1-install-chinese-input-method-fctix"><span class="nav-number">7.</span> <span class="nav-text">Bonus1: Install Chinese Input Method (Fctix)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bonus2-install-zshvim-configuration"><span class="nav-number">8.</span> <span class="nav-text">Bonus2: Install zsh/vim configuration</span></a></li></ol></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span><span class="with-love"><i class="fa fa-user"></i></span> <span class="author" itemprop="copyrightHolder">KnightR</span></div><div class="busuanzi-count"><script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span><span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i> <span id="scrollpercent"><span>0</span>%</span></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script><script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script><script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script><script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script><script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script><script type="text/javascript">_hcwp=window._hcwp||[],_hcwp.push({widget:"Bloggerstream",widget_id:97727,selector:".hc-comment-count",label:"{%COUNT%}"}),_hcwp.push({widget:"Stream",widget_id:97727,xid:"arch-triboot/"}),function(){if(!("HC_LOAD_INIT"in window)){HC_LOAD_INIT=!0;var t=(navigator.language||navigator.systemLanguage||navigator.userLanguage||"en").substr(0,2).toLowerCase(),e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src=("https:"==document.location.protocol?"https":"http")+"://w.hypercomments.com/widget/hc/97727/"+t+"/widget.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(e,a.nextSibling)}}()</script><script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script><script type="text/javascript">wpac_init=window.wpac_init||[],wpac_init.push({widget:"Rating",id:7999,el:"wpac-rating",color:"fc6423"}),function(){if(!("WIDGETPACK_LOADED"in window)){WIDGETPACK_LOADED=!0;var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="//embed.widgetpack.com/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t.nextSibling)}}()</script></body></html>
