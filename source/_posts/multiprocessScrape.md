@@ -17,20 +17,37 @@ tags:
 使用Python多线程爬虫获取B站UP主视频信息
 
 
+使用Python多线程爬虫获取B站UP主视频信息
+
+
+
 # 目标
 
 使用Python获取指定B站UP主所有上传视频
 
 使用Python自带或第三方多任务插件进行加速
 
-# 插件
+# 需要的库
 
-+ 基础
-  + `requests`
-+ 多任务
-  + `multiprocessing`
-  + `gevent`
-  + `requests.session`
+```Python
+import requests
+import psutil
+import sys
+import os
+from bs4 import BeautifulSoup
+import multiprocessing
+from multiprocessing import cpu_count
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+import time
+from pandas import DataFrame
+import gevent.monkey
+
+import gevent.pool as gpool
+```
+
+
 
 # 基础例子(单线程)
 
@@ -334,15 +351,34 @@ def parseAll_gevent_session(API_list, numProcess, headers):
 ```
 
 ```
-parseAll_gevent_session took 5.332706928253174 seconds
-parseAll_gevent_session took 12.361799955368042 seconds
-parseAll_gevent_session took 14.709704637527466 seconds
-parseAll_gevent_session took 24.796751737594604 seconds
-parseAll_gevent_session took 46.096556663513184 seconds
-parseAll_gevent_session took 88.54197645187378 seconds
+parse_gevent took 1.3498566150665283 seconds
+parse_gevent took 2.1473851203918457 seconds
+parse_gevent took 2.217400550842285 seconds
+parse_gevent took 3.378615617752075 seconds
+parse_gevent took 6.412792682647705 seconds
+parse_gevent took 12.337404251098633 seconds
 ```
 
-需要注意的是，在使用`gevent + session`组合是，我们遇到了多个`HTTPSConnectionPool`403错误。
+
+
+需要注意的是，使用`gevent`需要先进行`monkey.patch_all()`。
+
+gevent和python自带的socket库有部分的兼容问题，因此gevent提供了自己的socket补丁`monkey.patch_all()`。需要在import之后立刻进行。
+
+```
+import gevent.pool as pool
+import gevent.monkey
+
+monkey.patch_all()
+```
+
+
+
+> 在进行monkey.patch_all()之后，multiprocessing()等使用默认socket库的程序会出现错误。有一些错误可以通过`monkey.patch_all(thread=False, socket=False)`解决，有一些不行。因此，尽量把gevent的使用放在代码末尾，或者避免和multiprocessing等同时使用。gevent自带的threading功能足够满足多线程需求。
+
+
+
+如果未进行monkey补丁，在同时使用`gevent`和`requests.session`则可能出现以下错误。该错误为多次重复服务器拒绝连接，是由`gevent`和默认`socket`冲突导致。。
 
 ```Bash
 HTTPSConnectionPool(host='space.bilibili.com', port=443): Max retries exceeded with url: /ajax/member/getSubmitVideos?mid=1315101&pagesize=30&tid=0&page=2&keyword=&order=pubdate (Caused by SSLError(SSLError("bad handshake: SysCallError(-1, 'Unexpected EOF')",),))
@@ -355,11 +391,11 @@ UnboundLocalError: local variable 'records' referenced before assignment
 Mon Mar  5 04:08:28 2018 <Greenlet at 0x20162abe470: get_singlePage_session(('https://space.bilibili.com/ajax/member/getSubmit)> failed with UnboundLocalError
 ```
 
-该错误为多次重复服务器拒绝链接导致，大概是因为同一gevent使用同一session时共享了一些数据，导致B站拒绝爬虫行为。具体的原因还在探寻中。。。请指教。
 
 
 
-## 使用grequests库
+
+## 使用grequests库(有误)
 
 `grequests`是由[kennethreitz](https://github.com/kennethreitz)开发的第三方库。grequests同时使用requests和gevent，允许用户发起多个异步HTTP请求。`grequests`简化了单独使用`gevent`的步骤，并且在进行HTTP请求时有一定速度上的提升。
 
@@ -393,12 +429,12 @@ def parseAll_grequests(API_List, numProcess, headers):
 执行结果
 
 ```
-parseAll_grequests took 5.276720285415649 seconds
-parseAll_grequests took 12.701724290847778 seconds
-parseAll_grequests took 16.826751947402954 seconds  # 执行时间和gevent, gevent + session无异
-parseAll_grequests took 26.43042278289795 seconds
-parseAll_grequests took 50.97756910324097 seconds
-parseAll_grequests took 61.27045488357544 seconds # 注意，这里大概有2/3的链接失败，因为timeout比较												短，所以执行时间短
+parse_gevent_session took 1.0508449077606201 seconds
+parse_gevent_session took 1.8688721656799316 seconds
+parse_gevent_session took 1.7941479682922363 seconds
+parse_gevent_session took 2.61824893951416 seconds
+parse_gevent_session took 4.60194730758667 seconds
+parse_gevent_session took 8.719105005264282 seconds
 ```
 
 使用`grequests`依然会导致response错误，无论是否使用`session`。所以，`gevent`应该共享了一些HTTP链接数据导致B站将不同的requests视作爬虫处理。
@@ -410,23 +446,28 @@ parseAll_grequests took 61.27045488357544 seconds # 注意，这里大概有2/3�
 # 结果分析
 
 
-{% asset_img Comparepng.png 速度比较 %}
->  其中，N为UP主上传数量，实际执行的`requests.get`访问数大概为N/30。
+{% asset_img Comparepng.png Benchmark %}
+
+>  其中，N为UP主视频数量，实际执行的`requests.get`访问数大概为N/30。
 
 
 
 | 视频数 | 单线程 | pool  | pool + session | gevent | gevent + session |
 | ------ | :----: | :---: | :------------: | :----: | :--------------: |
-| 156    |  5.73  | 5.82  |      5.77      |  5.38  |       5.33       |
-| 413    | 14.21  | 9.35  |      9.45      | 12.89  |      12.36       |
-| 522    | 17.52  | 9.50  |      8.86      | 16.13  |      14.71       |
-| 792    | 27.11  | 9.57  |     10.03      | 25.19  |      24.79       |
-| 1569   | 52.07  | 13.01 |     12.37      | 50.55  |      46.09       |
-| 3259   | 110.41 | 18.32 |     18.02      | 107.25 |      88.54       |
+| 156    | 5.773  | 7.83  |     7.241      | 1.349  |       1.05       |
+| 413    | 13.88  | 8.68  |      8.60      | 2.147  |       1.86       |
+| 522    | 17.38  | 8.231 |      8.86      | 2.217  |       1.79       |
+| 792    | 27.37  | 9.473 |      9.29      | 3.378  |      2.618       |
+| 1569   | 51.51  | 12.42 |     12.07      | 6.412  |       4.60       |
+| 3259   | 113.71 | 18.34 |     18.33      | 12.33  |       8.71       |
 
-## multiprocessing速度最快
+## gevent速度最快
 
-可以看出，在我们的例子中，`multiprocessing.pool`对于我们的应用的加速最为明显。共享`session`的使用在使用`multiprocessing`时并没有明显的加速。然而，使用`multiprocessing`时CPU占用率达到了100%，对于需要计算机同时处理其它工作显然时不合适的。可以考虑减少进程数，或者使用`psutils`来限制进程的优先度。
+在仅仅使用10个gevent携程时，`gevent`所达到的速度也比`multiprocessing`快上一倍左右。由此可以看出，在进行大量socket连接时，`gevent`这个针对网络连接优化过的多“线程”库比多进程更加高效。而在资源占用率上，`gevent`因为不产生新的进程，对于机器基本不产生额外的负担。在我的台式机上，可以轻易的使用上百条携程。
+
+## multiprocessing优化明显，但资源占用率太大
+
+`multiprocessing.pool`对于我们的应用的加速也很明显。共享`session`的使用在使用`multiprocessing`时并没有明显的加速。然而，使用`multiprocessing`时CPU占用率达到了100%，对于需要计算机同时处理其它工作显然时不合适的。可以考虑减少进程数，或者使用`psutils`来限制进程的优先度。
 
 ```Python
 import psutil
@@ -450,15 +491,9 @@ pool = Pool(None, limit_cpu) # 使用CPU核心数目，也可以自定义
 | 3259视频 | 31.91  |   60.75   |   32.19   |   18.32    | 110.41 |
 |   CPU    |  浮动  |  小于50%  |   浮动    |    100%    |  <10%  |
 
-在使用2进程时，速度大致和使用`gevent`相似。
+## requests.session优化作用不明显
 
-## gevent表现不如人意
-
-`gevent`的表现远远低于预期。在最初的[教程](http://maxmelnick.com/2016/04/18/faster-python-data-scraping.html)中，gevent的表现远快于单线程（下图）。而在我们的测试中，`gevent`的表现堪堪和单线程相当。不知道是不是B站对于gevent pooling的方式做了限制。。。
-{% asset_img tutorial_bench.png 教程测评 %}
-
-
-总的来说，使用`pool + session`可以大致满足我们对于B站爬虫的加速要求；在不在乎CPU使用率的情况下大致可以提速80%。
+无论在使用`gevent`还是`multiprocessing`时，加上`requests.session`后的优化都不明显。原因可能是因为我们的并没有重复连接同一url。不过在访问大量连接时，`session`对于`gevent`有小程度的优化。可以预则，如果继续加大需要访问的连接量，`session`加速会更加明显。
 
 
 
@@ -477,3 +512,5 @@ pool = Pool(None, limit_cpu) # 使用CPU核心数目，也可以自定义
 [Gevent 进程 线程 协程 异步](https://www.jianshu.com/p/c6053a4c3dd5)
 
 [gevent-pool](http://www.gevent.org/gevent.pool.html)
+
+[Gevent monkeypatching breaking multiprocessing](https://stackoverflow.com/questions/8678307/gevent-monkeypatching-breaking-multiprocessing)
