@@ -6,7 +6,7 @@
     "version": "3.4.4"
   },
   "dependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-htmlclean": "^2.7.16",
     "gulp-htmlmin": "^3.0.0",
     "gulp-minify-css": "^1.2.4",
@@ -24,6 +24,12 @@
     "hexo-renderer-pandoc": "^0.1.1",
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-server": "^0.2.0",
-    "hexo-soundcloud": "^0.2.0"
-  }
+    "hexo-soundcloud": "^0.2.0",
+    "snyk": "^1.104.2"
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "snyk": true
 }
