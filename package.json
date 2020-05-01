@@ -24,6 +24,12 @@
     "hexo-renderer-pandoc": "^0.1.1",
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-server": "^0.2.0",
-    "hexo-soundcloud": "^0.2.0"
-  }
+    "hexo-soundcloud": "^0.2.0",
+    "snyk": "^1.316.1"
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "snyk": true
 }
